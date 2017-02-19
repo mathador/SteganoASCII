@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SteganoASCII.DAO.CaractereMorphing">
+    <Position X="0.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAACAAAAAAAAAAAAAAAAACAABAAAIQAA=</HashCode>
+      <FileName>DAO\CaractereMorphing.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SteganoASCII.Helpers.KeysHelper">
+    <Position X="5.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Helpers\KeysHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SteganoASCII.Helpers.KeyTemplateHelper">
+    <Position X="9.25" Y="1.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAEAAEAAAAAAAAABQAEAAAAAABAAAA=</HashCode>
+      <FileName>Helpers\KeyTemplateHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SteganoASCII.Helpers.TemplatesHelper">
+    <Position X="7.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Helpers\TemplatesHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SteganoASCII.Program">
+    <Position X="2.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
