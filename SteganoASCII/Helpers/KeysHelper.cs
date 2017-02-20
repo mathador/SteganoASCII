@@ -22,6 +22,7 @@ namespace SteganoASCII.Helpers
 
         public static void LoadFromFile(string fullFilePath)
         {
+            Caracteres.Clear();
             using(TextReader strR = new StreamReader(fullFilePath))
             {
                 string getFileContetnt = strR.ReadToEnd();

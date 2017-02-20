@@ -16,7 +16,6 @@ namespace SteganoASCII.Helpers
             {
                 return _templateNbOfLines;
             }
-
             set
             {
                 _templateNbOfLines = value;

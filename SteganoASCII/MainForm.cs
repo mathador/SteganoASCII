@@ -29,33 +29,40 @@ namespace SteganoASCII
         {
             string currentPath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
             string dataDirectory = ConfigurationManager.AppSettings["DataDirectory"];
-            string completeDataDirectory = Path.Combine(currentPath, dataDirectory);
-            if (Directory.Exists(completeDataDirectory))
+            //string completeDataDirectory = Path.Combine(currentPath, dataDirectory);
+            //if (Directory.Exists(completeDataDirectory))
+            //{
+            //    string keysFile = ConfigurationManager.AppSettings["KeysFile"];
+            //    string fullpathToKeysFile = Path.Combine(completeDataDirectory, keysFile);
+            //    if (File.Exists(fullpathToKeysFile))
+            //    {
+            //        KeysHelper.LoadFromFile(fullpathToKeysFile);
+
+            //        string templatesFile = ConfigurationManager.AppSettings["TemplatesFile"];
+            //        string fullpathToTemplatesFile = Path.Combine(completeDataDirectory, templatesFile);
+            //        if (File.Exists(fullpathToTemplatesFile))
+            //        {
+            //            TemplatesHelper.LoadFromFile(fullpathToTemplatesFile, KeysHelper.Caracteres.Count);
+            //        }
+
+            //        int minChar = Math.Min(KeysHelper.Caracteres.Count, TemplatesHelper.Templates.Count);
+            //        for (int idx = 0; idx < minChar; idx++)
+            //        {
+            //            CaractereMorphing current = new CaractereMorphing() { Caractere = KeysHelper.Caracteres[idx], Template = TemplatesHelper.Templates[idx] };
+            //            alphabet.Add(current);
+            //        }
+            //    }
+            //}
+            //else
+            //{
+
+            //}
+
+            if (Directory.Exists(dataDirectory))
             {
-                string keysFile = ConfigurationManager.AppSettings["KeysFile"];
-                string fullpathToKeysFile = Path.Combine(completeDataDirectory, keysFile);
-                if (File.Exists(fullpathToKeysFile))
-                {
-                    KeysHelper.LoadFromFile(fullpathToKeysFile);
-
-                    string templatesFile = ConfigurationManager.AppSettings["TemplatesFile"];
-                    string fullpathToTemplatesFile = Path.Combine(completeDataDirectory, templatesFile);
-                    if (File.Exists(fullpathToTemplatesFile))
-                    {
-                        TemplatesHelper.LoadFromFile(fullpathToTemplatesFile, KeysHelper.Caracteres.Count);
-                    }
-
-                    int minChar = Math.Min(KeysHelper.Caracteres.Count, TemplatesHelper.Templates.Count);
-                    for (int idx = 0; idx < minChar; idx++)
-                    {
-                        CaractereMorphing current = new CaractereMorphing() { Caractere = KeysHelper.Caracteres[idx], Template = TemplatesHelper.Templates[idx] };
-                        alphabet.Add(current);
-                    }
-                }
-            }
-            else
-            {
-
+                string[] diData = Directory.GetFiles(dataDirectory);
+                string[] diDataFiltered = diData.Where(f => !f.Contains("keys.txt")).Select(f=>f.Remove(0,5)).ToArray();
+                cbb_template.Items.AddRange(diDataFiltered);
             }
 
             //if (!String.IsNullOrWhiteSpace(ConfigurationManager.AppSettings["Width"]))
@@ -152,6 +159,42 @@ namespace SteganoASCII
                 {
                     cb_caractereCodant.Items.Add(c.ToString());
                 }
+            }
+        }
+
+        private void cbb_template_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string currentPath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+            string dataDirectory = ConfigurationManager.AppSettings["DataDirectory"];
+            string completeDataDirectory = Path.Combine(currentPath, dataDirectory);
+            if (Directory.Exists(completeDataDirectory))
+            {
+                string keysFile = ConfigurationManager.AppSettings["KeysFile"];
+                string fullpathToKeysFile = Path.Combine(completeDataDirectory, keysFile);
+                if (File.Exists(fullpathToKeysFile))
+                {
+                    KeysHelper.LoadFromFile(fullpathToKeysFile);
+
+                    //string templatesFile = ConfigurationManager.AppSettings["TemplatesFile"];
+                    string templatesFile = cbb_template.Text;
+                    string fullpathToTemplatesFile = Path.Combine(completeDataDirectory, templatesFile);
+                    if (File.Exists(fullpathToTemplatesFile))
+                    {
+                        TemplatesHelper.LoadFromFile(fullpathToTemplatesFile, KeysHelper.Caracteres.Count);
+                    }
+
+                    int minChar = Math.Min(KeysHelper.Caracteres.Count, TemplatesHelper.Templates.Count);
+                    alphabet.Clear();
+                    for (int idx = 0; idx < minChar; idx++)
+                    {
+                        CaractereMorphing current = new CaractereMorphing() { Caractere = KeysHelper.Caracteres[idx], Template = TemplatesHelper.Templates[idx] };
+                        alphabet.Add(current);
+                    }
+                }
+            }
+            else
+            {
+
             }
         }
     }

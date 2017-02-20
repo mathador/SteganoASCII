@@ -35,6 +35,8 @@
             this.l_codant = new System.Windows.Forms.Label();
             this.l_jeudecaracteres = new System.Windows.Forms.Label();
             this.TB_Ouput = new System.Windows.Forms.TextBox();
+            this.lbl_template = new System.Windows.Forms.Label();
+            this.cbb_template = new System.Windows.Forms.ComboBox();
             this.GB_Parametrage.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,7 +53,9 @@
             // 
             // GB_Parametrage
             // 
+            this.GB_Parametrage.Controls.Add(this.cbb_template);
             this.GB_Parametrage.Controls.Add(this.cb_caractereCodant);
+            this.GB_Parametrage.Controls.Add(this.lbl_template);
             this.GB_Parametrage.Controls.Add(this.cb_jeudecaracteres);
             this.GB_Parametrage.Controls.Add(this.l_codant);
             this.GB_Parametrage.Controls.Add(this.l_jeudecaracteres);
@@ -121,6 +125,27 @@
             this.TB_Ouput.TabIndex = 2;
             this.TB_Ouput.WordWrap = false;
             // 
+            // lbl_template
+            // 
+            this.lbl_template.AutoSize = true;
+            this.lbl_template.Location = new System.Drawing.Point(7, 78);
+            this.lbl_template.Name = "lbl_template";
+            this.lbl_template.Size = new System.Drawing.Size(85, 13);
+            this.lbl_template.TabIndex = 0;
+            this.lbl_template.Text = "Fichier Template";
+            // 
+            // cbb_template
+            // 
+            this.cbb_template.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbb_template.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbb_template.FormattingEnabled = true;
+            this.cbb_template.Location = new System.Drawing.Point(106, 75);
+            this.cbb_template.Name = "cbb_template";
+            this.cbb_template.Size = new System.Drawing.Size(395, 21);
+            this.cbb_template.TabIndex = 1;
+            this.cbb_template.SelectedIndexChanged += new System.EventHandler(this.cbb_template_SelectedIndexChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -148,6 +173,8 @@
         private System.Windows.Forms.ComboBox cb_jeudecaracteres;
         private System.Windows.Forms.Label l_codant;
         private System.Windows.Forms.Label l_jeudecaracteres;
+        private System.Windows.Forms.ComboBox cbb_template;
+        private System.Windows.Forms.Label lbl_template;
     }
 }
 

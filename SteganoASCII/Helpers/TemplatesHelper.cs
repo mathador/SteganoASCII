@@ -34,6 +34,7 @@ namespace SteganoASCII.Helpers
 
             KeyTemplateHelper.TemplateNbOfLines = que.Count / nbDeCaracteres;
             StringBuilder currentTemplate = null;
+            Templates.Clear();
             while (que.Count != 0)
             {
                 if (que.Count % KeyTemplateHelper.TemplateNbOfLines == 0)
